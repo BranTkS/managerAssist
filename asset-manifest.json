@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/managerAssist/static/css/main.bd2d51ac.css",
+    "main.js": "/managerAssist/static/js/main.f510edc2.js",
+    "static/js/453.ea94506e.chunk.js": "/managerAssist/static/js/453.ea94506e.chunk.js",
+    "index.html": "/managerAssist/index.html",
+    "main.bd2d51ac.css.map": "/managerAssist/static/css/main.bd2d51ac.css.map",
+    "main.f510edc2.js.map": "/managerAssist/static/js/main.f510edc2.js.map",
+    "453.ea94506e.chunk.js.map": "/managerAssist/static/js/453.ea94506e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bd2d51ac.css",
+    "static/js/main.f510edc2.js"
+  ]
+}
