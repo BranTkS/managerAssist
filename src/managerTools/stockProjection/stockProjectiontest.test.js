@@ -17,6 +17,9 @@ describe('StockProjection Component', () => {
     expect(growthInput.value).toBe('10');
   });
 
+  
+//tests projection calculation
+
   test('calculates and displays projected stock and projection', () => {
     render(<StockProjection />);
     fireEvent.change(screen.getByLabelText(/Growth/i), { target: { value: '10' } });
