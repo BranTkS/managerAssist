@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import * as XLSX from 'xlsx';
 
 const items = [
   "Chicken", "Strips", "Fillets", "Livers", "Chilli Bean", "Rice", "Pap",
@@ -32,10 +33,51 @@ function App() {
     setTableData(newData);
   };
 
+  // Download table as Excel
+  const downloadExcel = () => {
+    const wsData = [
+      ['Item', 'Opening Stock', 'Previous Month', 'Projection']
+    ];
+    tableData.forEach(row => {
+      const prevMonth = parseFloat(row.previousMonth) || 0;
+      const openingStock = parseFloat(row.openingStock) || 0;
+      const projectedStock = stockWithGrowth(parseFloat(growth) || 0, prevMonth, openingStock);
+      const projection = (row.openingStock !== '' && row.previousMonth !== '')
+        ? calculateProjection(projectedStock, openingStock)
+        : '';
+      wsData.push([
+        row.name,
+        row.openingStock,
+        row.previousMonth,
+        projection
+      ]);
+    });
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+    XLSX.utils.book_append_sheet(wb, ws, 'Stock Projection');
+    XLSX.writeFile(wb, 'StockProjection.xlsx');
+  };
+
   return (
     <div className="App">
       <header className="StockProjection">
         <h1>Stock Projection Tool</h1>
+        {/* Move Download Excel button above Growth Percentage */}
+        <button
+          onClick={downloadExcel}
+          style={{
+            marginBottom: '16px',
+            padding: '8px 16px',
+            background: '#06a39bff',
+            color: '#fff',
+            border: '1px solid #06a39bff',
+            borderRadius: '4px',
+            fontWeight: 'bold',
+            cursor: 'pointer'
+          }}
+        >
+          Download Excel
+        </button>
         <form>
           <div>
             <label>
