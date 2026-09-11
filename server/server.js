@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 const { RosterSaved, Stats } = require('./db');
 const authRoutes = require('./authRoutes');
 
@@ -162,6 +163,18 @@ app.get('/api/stats/:userEmail', async (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: 'Failed to fetch stats.' });
   }
+});
+
+app.get('/api/health', (req, res) => {
+  res.json({ ok: true, service: 'managerassist-api' });
+});
+
+const buildPath = path.resolve(__dirname, '../build');
+app.use(express.static(buildPath));
+
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  return res.sendFile(path.join(buildPath, 'index.html'));
 });
 
 app.listen(port, () => {

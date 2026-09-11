@@ -1,5 +1,4 @@
 {
-  "homepage": "https://brantks.github.io/managerAssist/",
   "name": "managerassist",
   "version": "0.1.0",
   "private": true,
@@ -23,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:render": "node server/server.js",
     "server": "node server/server.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

@@ -1,7 +1,11 @@
 require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 const mongoose = require('mongoose');
 
-const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://brantshumba_db_user:3wkMnoSujoxJBlXW@rosters.qtbjadm.mongodb.net/rostersAccounts?appName=rosters';
+const mongoUri = process.env.MONGODB_URI;
+
+if (!mongoUri) {
+  throw new Error('MONGODB_URI must be configured before starting the server.');
+}
 
 mongoose.connect(mongoUri, {
   serverSelectionTimeoutMS: 15000,

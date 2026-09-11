@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: managerassist
+    runtime: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start:render
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: REACT_APP_GOOGLE_CLIENT_ID
+        sync: false
