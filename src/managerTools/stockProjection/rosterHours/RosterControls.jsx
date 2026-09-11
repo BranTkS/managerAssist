@@ -15,7 +15,7 @@ const RosterControls = ({
       style={{
         marginLeft: '20px',
         background: accentColour,
-        color: textColour,
+        color: 'var(--color-surface)',
         border: `1px solid ${accentColour}`,
         padding: '6px 12px',
         borderRadius: '4px'
@@ -28,7 +28,7 @@ const RosterControls = ({
       style={{
         marginLeft: '10px',
         background: accentColour,
-        color: textColour,
+        color: 'var(--color-surface)',
         border: `1px solid ${accentColour}`,
         padding: '6px 12px',
         borderRadius: '4px'
@@ -45,11 +45,11 @@ const RosterControls = ({
       />
       <span style={{
         padding: '6px 12px',
-        background: '#06a39bff',
-        border: '1px solid #ccc',
+        background: 'var(--color-primary-hover)',
+        border: '1px solid var(--color-border)',
         cursor: 'pointer',
         borderRadius: '4px',
-        color: textColour
+        color: 'var(--color-surface)'
       }}>Upload Excel</span>
     </label>
     {/* Navigation buttons can be added here as well */}

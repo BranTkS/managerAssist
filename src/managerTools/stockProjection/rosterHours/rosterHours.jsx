@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 
 // Colour variables
-const textColour = '#222222';
-const headerColour = '#644c52';
-const backgroundColour = '#f8f8fa';
-const accentColour = '#06a39bff';
-const secondaryColour = '#c7c7ff';
-const primaryColour = '#05eff7ff';
+const textColour = '#2B2625';
+const headerColour = '#2B2625';
+const backgroundColour = '#FAF8F5';
+const accentColour = '#F28C68';
+const secondaryColour = '#FCD5CE';
+const primaryColour = '#FCD5CE';
 
 // Helper to get 7 days from a start date
 function getWeekDates(startDate) {
@@ -466,8 +466,8 @@ function RosterHours() {
               />
               <span style={{
                 padding: '6px 12px',
-                background: '#06a39bff',
-                border: '1px solid #ccc',
+                background: 'var(--color-primary)',
+                border: '1px solid var(--color-border)',
                 cursor: 'pointer',
                 borderRadius: '4px',
                 color: textColour

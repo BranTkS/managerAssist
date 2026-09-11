@@ -68,9 +68,9 @@ function App() {
           style={{
             marginBottom: '16px',
             padding: '8px 16px',
-            background: '#06a39bff',
+            background: 'var(--color-primary)',
             color: '#fff',
-            border: '1px solid #06a39bff',
+            border: '1px solid #E07A57',
             borderRadius: '4px',
             fontWeight: 'bold',
             cursor: 'pointer'

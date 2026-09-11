@@ -1,34 +1,206 @@
 .App {
-  text-align: center;
-}
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  min-height: 100vh;
+  padding: 28px 20px 40px;
+  background: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-surface);
+  backdrop-filter: blur(10px);
+  padding: 24px 20px 28px;
+  min-height: calc(100vh - 56px);
+}
+
+.App-header h1 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: clamp(1.9rem, 2.7vw, 2.7rem);
+  letter-spacing: -0.05em;
+}
+
+.App-header button {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-surface);
+}
+
+.App-header button:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-primary-hover);
+  box-shadow: var(--shadow-surface);
+}
+
+.App-header nav {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start;
+  margin: 20px 0;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+}
+
+.App-header nav button {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
+.App-header nav button[style*="fontWeight: bold"] {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border-color: transparent;
+  box-shadow: var(--shadow-surface);
+}
+
+.app-ad-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+.app-ad-layout--single {
+  grid-template-columns: 1fr;
+}
+
+.ad-slot {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-surface);
+  padding: 12px;
+  color: var(--color-text-primary);
+  min-height: 160px;
+}
+
+.ad-slot--compact {
+  min-height: 120px;
+  padding: 10px;
+}
+
+.ad-slot__label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.ad-slot__label {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  padding: 4px 7px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.ad-slot__sponsor {
+  opacity: 0.8;
+}
+
+.ad-slot__content {
+  background: var(--color-background);
+  border-radius: 12px;
+  padding: 14px 12px;
+  border: 1px solid var(--color-border);
+}
+
+.ad-slot__badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-secondary);
+  border-radius: 999px;
+  padding: 4px 8px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.ad-slot__content h4 {
+  margin: 0 0 6px;
+  font-size: 1.08rem;
+}
+
+.ad-slot__content p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  font-size: 0.9rem;
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--color-primary-hover);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.roster-page-shell {
+  display: block;
+  width: 100%;
+}
+
+.roster-page-main {
+  width: 100%;
+  min-width: 0;
+}
+
+.roster-top-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.roster-controls-column {
+  min-width: 0;
+}
+
+.roster-action-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.roster-nav-row {
+  justify-content: flex-start;
+}
+
+.roster-ad-slot {
+  height: 100%;
+  min-height: 170px;
+  align-self: stretch;
+}
+
+@media (max-width: 980px) {
+  .app-ad-layout {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotate(360deg);
+
+  .roster-top-layout {
+    grid-template-columns: 1fr;
   }
 }
+
+
